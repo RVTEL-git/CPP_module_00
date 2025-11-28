@@ -6,7 +6,7 @@
 /*   By: barmarti <barmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 15:27:15 by barmarti          #+#    #+#             */
-/*   Updated: 2025/11/27 17:31:50 by barmarti         ###   ########.fr       */
+/*   Updated: 2025/11/28 11:01:26 by barmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,15 @@ class Phonebook {
 		void	search(void);
 		void	print(Contact contact) const;
 
-		int		getindex(void) const;
+		int		get_count(void) const;
 		Contact	getcontact(int index) const;
 
-		private:
+	private:
 		Contact _contact[8];
 		int		_index;
+		int		_count;
+
+		bool	_overwrite(std::string str);
 };
 
 #endif

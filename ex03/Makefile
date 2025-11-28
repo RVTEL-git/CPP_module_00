@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: barmarti <barmarti@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/11/24 14:59:39 by barmarti          #+#    #+#              #
-#    Updated: 2025/11/28 06:29:14 by barmarti         ###   ########.fr        #
+#    Created: 2025/11/28 14:18:10 by barmarti          #+#    #+#              #
+#    Updated: 2025/11/28 14:37:55 by barmarti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX = g++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 
-NAME = phonebook
+NAME = Account
 
-SRCS = utils.cpp contact.cpp phonebook.cpp main.cpp
+SRCS = Account.cpp tests.cpp
 
 OBJ_DIR = obj
 OBJS = $(patsubst %.cpp,$(OBJ_DIR)/%.o,$(SRCS))

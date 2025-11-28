@@ -6,13 +6,21 @@
 /*   By: barmarti <barmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 14:37:59 by barmarti          #+#    #+#             */
-/*   Updated: 2025/11/27 17:43:06 by barmarti         ###   ########.fr       */
+/*   Updated: 2025/11/28 11:17:47 by barmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.hpp"
 #include <iostream>
 #include <iomanip>
+
+void	start_ui(void)
+{
+	std::cout << "What sould we do ?" << std::endl;
+	std::cout << "=============================" << std::endl;
+	std::cout << "| 1.ADD | 2.SEARCH | 3.EXIT |" << std::endl;
+	std::cout << "=============================" << std::endl;
+}
 
 bool	check_lenght(std::string str, size_t max)
 {
@@ -23,14 +31,15 @@ bool	check_lenght(std::string str, size_t max)
 
 void	display_ui(Phonebook book)
 {
-	int	index = book.getindex();
+	int	count = book.get_count();
 
+	std::cout << "LOG: " << count << std::endl;
 	std::cout << "_____________________________________________" << std::endl;
 	std::cout << "|     Index|First name| Last name|  Nickname|" << std::endl;
 	std::cout << "|----------|----------|----------|----------|" << std::endl;
-	for (int num = 0 ; num != index ; num ++)
+	for (int num = 0 ; num != count ; num ++)
 		display_contact(num, book);
-	std::cout << "_____________________________________________" << std::endl;
+	std::cout << "---------------------------------------------" << std::endl;
 }
 
 void	display_contact(int index, Phonebook book)
@@ -38,7 +47,7 @@ void	display_contact(int index, Phonebook book)
 	std::string	str;
 	
 	Contact contact = book.getcontact(index);;
-	std::cout << "        " << index << "|";
+	std::cout << "|         " << index + 1 << "|";
 	str = contact.get_first_name();
 	display_field(str);
 	str = contact.get_last_name();
@@ -50,17 +59,14 @@ void	display_contact(int index, Phonebook book)
 
 void	display_field(std::string str)
 {
-	int	cmp;
 
 	if (!check_lenght(str, 10))
 	{
-		str.append(str, 0, 9) + ".";
+		str.resize(9);
+		unsigned sz = str.size();
+		str.resize(sz+1, '.');
 		std::cout << str << "|";
 	}
 	else
-	{
-		cmp = str.length() - 10;
-		std::cout << std::setw(cmp);
-		std::cout << str << "|";
-	}
+		std::cout << std::setw(10) << str << "|";
 }
