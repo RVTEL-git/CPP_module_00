@@ -6,7 +6,7 @@
 /*   By: barmarti <barmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 15:59:38 by barmarti          #+#    #+#             */
-/*   Updated: 2025/11/28 11:24:59 by barmarti         ###   ########.fr       */
+/*   Updated: 2025/11/29 10:29:13 by barmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,7 @@ void	Phonebook::search(void)
 	int					index;
 
 	std::getline(std::cin, str);
-	if (_index == _count)
+	if (_count == 0)
 		std::cout << "Empty phonebook, please add contacts first" << std::endl;
 	else
 	{
@@ -155,7 +155,7 @@ void	Phonebook::search(void)
 		{
 			ss << str;
 			ss >> index;
-			if (index > 0 && index <= 8)
+			if (index > 0 && index <= _count)
 			{
 				index -= 1;
 				print(getcontact(index));

@@ -6,7 +6,7 @@
 /*   By: barmarti <barmarti@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 14:37:59 by barmarti          #+#    #+#             */
-/*   Updated: 2025/11/28 11:17:47 by barmarti         ###   ########.fr       */
+/*   Updated: 2025/11/29 10:32:12 by barmarti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	display_ui(Phonebook book)
 {
 	int	count = book.get_count();
 
-	std::cout << "LOG: " << count << std::endl;
 	std::cout << "_____________________________________________" << std::endl;
 	std::cout << "|     Index|First name| Last name|  Nickname|" << std::endl;
 	std::cout << "|----------|----------|----------|----------|" << std::endl;
